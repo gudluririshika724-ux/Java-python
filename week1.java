@@ -44,7 +44,24 @@ class LinkedList{
 
         }
         curr.next=newnode;
-
+    }
+     public void insertAtposition(int val,int pos){
+            ListNode newnode=new ListNode(val);
+            if(pos==1){
+                newnode.next=heaNode;
+                heaNode=newnode;
+                return;
+            }
+            ListNode temp=heaNode;
+             for (int i = 1; i < pos - 1 && temp != null; i++) {
+            temp = temp.next;
+            }
+            if(temp==null){
+                System.out.println("invalid postion");
+                return;
+            }
+            newnode.next=temp.next;
+            temp.next=newnode;
     }
 
     public static void main(String args[]){
