@@ -16,7 +16,7 @@ class LinkedList{
         ListNode current=heaNode;
 
         while(current!=null){
-            System.out.println(current.val +"->");
+            System.out.print(current.val +"->");
             current=current.next;
         }
          System.out.println("null");
@@ -38,7 +38,7 @@ class LinkedList{
             return;
 
         }
-        ListNode curr=new ListNode(val);
+        ListNode curr=heaNode;
         while(curr.next!=null){
             curr=curr.next;
 
@@ -62,9 +62,31 @@ class LinkedList{
             }
             newnode.next=temp.next;
             temp.next=newnode;
+        }
+
+    public void display(){
+        ListNode temp=heaNode;
+        while(temp!=null){
+            System.out.print(temp.val+"-->");
+            temp=temp.next;
+        }
+        System.out.print("END");
     }
 
+
     public static void main(String args[]){
+
+        LinkedList ll=new LinkedList();
+
+        ll.insertAthead(10);
+        ll.insertAtTail(20);
+        ll.insertAtTail(30);
+        ll.insertAtposition(25, 3);
+
+        ll.traverse();
+        ll.display();
+
+
 
     }
 }
