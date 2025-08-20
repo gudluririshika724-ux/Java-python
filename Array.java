@@ -49,6 +49,22 @@ public class Array {
         
 
     }
+
+    // roatate the array along clockwise using k times 
+    public static void rotateArray(int arr[],int k){
+        int n=arr.length;
+        if(n==0||arr.length==0){
+            return;
+        }
+        int temp=arr[n-1];
+        for(int i=n-1;i>0;i--){
+            arr[i]=arr[i-1];
+        }
+        arr[0]=temp;
+        rotateArray(arr,k);
+        
+
+    }
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
         int k = 3;
