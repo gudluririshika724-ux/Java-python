@@ -65,6 +65,39 @@ public class Array {
         
 
     }
+    public static int  MaxSumArray(int arr[]){
+        int n=arr.length;
+        int currsum=0;
+         int res=arr[0];
+        for(int i=0;i<n;i++){
+           
+            for(int j=i;j<n;j++){
+                 currsum=res+arr[j];
+                 res=Math.max(res, j);
+            }
+            
+        }
+        return res;
+    }
+
+
+    public static int KadaneMaxSumArray(int arr[]){
+         int res = arr[0];
+        
+        // Maximum sum of subarray ending at current position
+        int maxEnding = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            
+            // Either extend the previous subarray or start 
+            // new from current element
+            maxEnding = Math.max(maxEnding + arr[i], arr[i]);
+          
+            // Update result if the new subarray sum is larger
+            res = Math.max(res, maxEnding);
+        }
+        return res;
+    }
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
         int k = 3;
