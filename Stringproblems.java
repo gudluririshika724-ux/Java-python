@@ -6,6 +6,10 @@ public class Stringproblems {
 
         String words[] = s.split(" ");
 
+
+
+        
+
         for(int i = 0; i < words.length; i++){
             try {
                 int num = Integer.parseInt(words[i]);  // check if word is a number
