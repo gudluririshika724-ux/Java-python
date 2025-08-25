@@ -53,7 +53,7 @@ public class Array {
     // roatate the array along clockwise using k times 
     public static void rotateArray(int arr[],int k){
         int n=arr.length;
-        if(n==0||arr.length==0){
+        if(k==0||arr.length==0){
             return;
         }
         int temp=arr[n-1];
@@ -97,6 +97,34 @@ public class Array {
             res = Math.max(res, maxEnding);
         }
         return res;
+    }
+    public int[] rotateclockwise(int[] arr, int k) {
+        int n = arr.length;
+        k = k % n;  // handle k > n
+        int i, j, temp;
+
+        // Step 1: reverse the whole array
+        for (i = 0, j = n - 1; i < j; i++, j--) {
+            temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+
+        // Step 2: reverse first k elements
+        for (i = 0, j = k - 1; i < j; i++, j--) {
+            temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+
+        // Step 3: reverse remaining n-k elements
+        for (i = k, j = n - 1; i < j; i++, j--) {
+            temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+
+        return arr;
     }
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
