@@ -8,7 +8,7 @@ public class Stringproblems {
 
 
 
-        
+    // reading from a long string and calculating cost 
 
         for(int i = 0; i < words.length; i++){
             try {
