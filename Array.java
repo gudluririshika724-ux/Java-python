@@ -49,6 +49,17 @@ public class Array {
         
 
     }
+    // sorted wave form 
+    public void waveform(int arr[]){
+         int n=arr.length;
+
+         for(int i=0;i<n-1;i=i+1){
+            int temp=arr[i];
+            arr[i]=arr[i+1];
+            arr[i+1]=temp;
+         }
+        return;
+    }
 
     // roatate the array along clockwise using k times 
     public static void rotateArray(int arr[],int k){
