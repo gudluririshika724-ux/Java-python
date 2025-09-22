@@ -26,6 +26,7 @@ public class Stringproblems {
                         else
                             qtyBooks = num;
                     }
+                    
                     else if(item.contains("pen")) {
                         if(i > 0 && words[i-1].equalsIgnoreCase("each"))
                             costPen = num;
