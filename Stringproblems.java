@@ -14,6 +14,7 @@ public class Stringproblems {
 
     // reading from a long string and calculating cost 
 
+
         for(int i = 0; i < words.length; i++){
             try {
                 int num = Integer.parseInt(words[i]);  // check if word is a number
