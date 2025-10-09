@@ -15,6 +15,8 @@
         }
     }
         */
+
+
 /*abstract class parent
 {
     abstract void show();
@@ -81,8 +83,6 @@ public class Main {
         if (days < 0) {
             months--;
             int[] daysInMonth = {31,28,31,30,31,30,31,31,30,31,30,31};
-            if ((currYear % 4 == 0 && currYear % 100 != 0) || (currYear % 400 == 0))
-                daysInMonth[1] = 29;
             days += daysInMonth[(currMonth - 2 + 12) % 12];
         }
 
@@ -92,6 +92,95 @@ public class Main {
         }
 
         System.out.println("Age: " + years + " years, " + months + " months, " + days + " days.");
+    }
+}// Base class (Superclass)
+class Animal {
+    String species;
+
+    public Animal(String species) {
+        this.species = species;
+    }
+
+    public void eat() {
+        System.out.println(species + " is eating.");
+    }
+
+    public void sleep() {
+        System.out.println(species + " is sleeping.");
+    }
+}
+
+// First level of inheritance (Subclass of Animal)
+class Mammal extends Animal {
+    String furColor;
+
+    public Mammal(String species, String furColor) {
+        super(species); // Call the constructor of the parent class (Animal)
+        this.furColor = furColor;
+    }
+
+    public void giveBirth() {
+        System.out.println(species + " is giving birth to live young.");
+    }
+}
+
+// Second level of inheritance (Subclass of Mammal)
+class Dog extends Mammal {
+    String breed;
+
+    public Dog(String species, String furColor, String breed) {
+        super(species, furColor); // Call the constructor of the parent class (Mammal)
+        this.breed = breed;
+    }
+
+    public void bark() {
+        System.out.println(breed + " the " + species + " is barking loudly!");
+    }
+
+    // Method overriding: changing the behavior of an inherited method
+    @Override
+    public void eat() {
+        System.out.println(breed + " the " + species + " is eating dog food.");
+    }
+}
+
+// Another subclass of Mammal (demonstrating hierarchical inheritance)
+class Cat extends Mammal {
+    boolean likesToClimb;
+
+    public Cat(String species, String furColor, boolean likesToClimb) {
+        super(species, furColor);
+        this.likesToClimb = likesToClimb;
+    }
+
+    public void meow() {
+        System.out.println(species + " is meowing softly.");
+    }
+}
+
+// Main class to demonstrate inheritance
+public class InheritanceExample {
+    public static void main(String[] args) {
+        // Create an object of the Dog class
+        Dog myDog = new Dog("Canine", "Brown", "Golden Retriever");
+        System.out.println("My dog is a " + myDog.breed + " with " + myDog.furColor + " fur.");
+        myDog.eat();      // Overridden method from Dog
+        myDog.bark();     // Method specific to Dog
+        myDog.giveBirth(); // Inherited from Mammal
+        myDog.sleep();    // Inherited from Animal
+        System.out.println();
+
+        // Create an object of the Cat class
+        Cat myCat = new Cat("Feline", "Black", true);
+        System.out.println("My cat is a " + myCat.species + " with " + myCat.furColor + " fur.");
+        myCat.eat();      // Inherited from Animal
+        myCat.meow();     // Method specific to Cat
+        myCat.giveBirth(); // Inherited from Mammal
+        System.out.println();
+
+        // Demonstrate polymorphism with a base class reference
+        Animal genericAnimal = new Dog("Canine", "White", "Poodle");
+        genericAnimal.eat(); // Calls the overridden eat() method of Dog
     }
 }
 
